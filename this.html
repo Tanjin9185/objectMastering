@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+    <h1>This is not confused anymore</h1>
+    <p onclick="this.innerText = 'you clicked'">Don't click me</p>  <!--kono ekta dom element upor jodi event handler take tar upor jeta te click kra hbe/target j setai hbe this -->
+
+    <script>
+        const myObj = {
+            name: 'Tanjin Ahamed',
+            getFullName: function(){
+                console.log(this);   //kono ekta method a this use krle object k represent krbe
+                return "Mr. " + this.name;
+            }
+        }
+        // myObj.getFullName();
+        const anotherObj = {
+            name: 'Tuhin',
+        }
+        anotherObj.getFullName = myObj.getFullName;
+        console.log(anotherObj.getFullName);
+        myObj.getFullName();        //function jar upor call hbe tar context/onojai/under a this er vaule set hbe/function er bam pashye . er agye j take tar upor base kre this vaule dependant kre
+        anotherObj.getFullName();
+
+        function add(a,b){
+            console.log(this);
+            return a + b;
+        }
+        add(12,13);         //add er bame kew nai..tai edik this er value window\
+        anotherObj.sum = add;   //add function tar bame anotherObj a sum dye rakha hoice tai ekhn eta window ashbe na..anotherObj er hye this ta kaj krbe
+        anotherObj.sum();
+    </script>
+</body>
+</html>
+<!-- this dependent kore kar context/under a choltece -->
