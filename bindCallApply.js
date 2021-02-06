@@ -6,7 +6,7 @@ const normalPerson = {
         console.log(this.firstName, this.lastName);
     },
     chargeBill: function(amount, vat){   
-        this.salary = this.salary - amount -vat;
+        this.salary = this.salary - amount -vat;        //.blind(heroPerson)   this.salary mane heroPerson.salary     blind(this er value)
         console.log(this);
         return this.salary;        
     },
